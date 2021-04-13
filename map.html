@@ -15,6 +15,29 @@
       href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
       rel="stylesheet"
     />
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAjgkU7oRkq8ryphr66PKW5EziHOreT5X4",
+        authDomain: "scarab-club.firebaseapp.com",
+        projectId: "scarab-club",
+        storageBucket: "scarab-club.appspot.com",
+        messagingSenderId: "509020471771",
+        appId: "1:509020471771:web:5ae2b7c82516c5aaa167fe"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
     <link href="/styles.css" rel="stylesheet" />
     <title>Maps</title>
   </head>
@@ -72,17 +95,17 @@
           })
         );
 
-        var marker = new mapboxgl.Marker()
-          .setLngLat([-83.066887, 42.358467])
-          .addTo(map);
-        var marker1 = new mapboxgl.Marker()
-          .setLngLat([-83.075367, 42.367733])
-          .addTo(map);
+        // var marker = new mapboxgl.Marker()
+        //   .setLngLat([-83.066887, 42.358467])
+        //   .addTo(map);
+        // var marker1 = new mapboxgl.Marker()
+        //   .setLngLat([-83.075367, 42.367733])
+        //   .addTo(map);
 
-        var popup = new mapboxgl.Popup({ closeOnClick: false })
-          .setLngLat([-96, 37.8])
-          .setHTML("<h1>Hello World!</h1>")
-          .addTo(map);
+        // var popup = new mapboxgl.Popup({ closeOnClick: false })
+        //   .setLngLat([-96, 37.8])
+        //   .setHTML("<h1>Hello World!</h1>")
+        //   .addTo(map);
 
         //$ curl "https://api.mapbox.com/styles/v1/examples/cjikt35x83t1z2rnxpdmjs7y7?access_token=pk.eyJ1IjoicHNjaG1pZWRlciIsImEiOiJja20ycHh1bzcwajM2MnZqdmtuMmk4dWpiIn0.apH3FfHL-LjCbxklt2seNw"
       </script>
@@ -122,5 +145,6 @@
         <button type="button" class="btn btn-$white">Clues</button>
       </div>
     </div>
+    <script src="/app.js"></script>
   </body>
 </html>
