@@ -10,6 +10,12 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
@@ -18,25 +24,11 @@
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyAjgkU7oRkq8ryphr66PKW5EziHOreT5X4",
-        authDomain: "scarab-club.firebaseapp.com",
-        projectId: "scarab-club",
-        storageBucket: "scarab-club.appspot.com",
-        messagingSenderId: "509020471771",
-        appId: "1:509020471771:web:5ae2b7c82516c5aaa167fe"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-    </script>
 
     <link href="/styles.css" rel="stylesheet" />
     <title>Maps</title>
@@ -44,107 +36,82 @@
   <body>
     <!-- <div class="container"> -->
     <div id="map"></div>
-    <div class="row">
-      <div class="progress">
-        <div
-          class="progress-bar"
-          role="progressbar"
-          style="width: 25%;"
-          aria-valuenow="25"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        ></div>
-        <div
-          class="progress-bar bg-success"
-          role="progressbar"
-          style="width: 25%;"
-          aria-valuenow="25"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        ></div>
-        <div
-          class="progress-bar bg-info"
-          role="progressbar"
-          style="width: 25%;"
-          aria-valuenow="25"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        ></div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <a href="index.html">Home</a>
+            <a href="#clue" id="toggleClueButton">Clue</a>
+            <a href="map.html">Go To Map</a>
+            <a href="badges.html">Badges</a>
+            <a href="user.html">Profile</a>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- </div> -->
 
-    <div class="row">
-      <script>
-        mapboxgl.accessToken =
-          "pk.eyJ1IjoicHNjaG1pZWRlciIsImEiOiJja20ycHh1bzcwajM2MnZqdmtuMmk4dWpiIn0.apH3FfHL-LjCbxklt2seNw";
-        var map = new mapboxgl.Map({
-          container: "map",
-          style: "mapbox://styles/mapbox/streets-v11",
-          center: [-83.066887, 42.358467],
-          zoom: 14,
-          pitch: 70
-        });
-
-        map.addControl(
-          new mapboxgl.GeolocateControl({
-            positionOptions: {
-              enableHighAccuracy: true
-            },
-            trackUserLocation: true
-          })
-        );
-
-        // var marker = new mapboxgl.Marker()
-        //   .setLngLat([-83.066887, 42.358467])
-        //   .addTo(map);
-        // var marker1 = new mapboxgl.Marker()
-        //   .setLngLat([-83.075367, 42.367733])
-        //   .addTo(map);
-
-        // var popup = new mapboxgl.Popup({ closeOnClick: false })
-        //   .setLngLat([-96, 37.8])
-        //   .setHTML("<h1>Hello World!</h1>")
-        //   .addTo(map);
-
-        //$ curl "https://api.mapbox.com/styles/v1/examples/cjikt35x83t1z2rnxpdmjs7y7?access_token=pk.eyJ1IjoicHNjaG1pZWRlciIsImEiOiJja20ycHh1bzcwajM2MnZqdmtuMmk4dWpiIn0.apH3FfHL-LjCbxklt2seNw"
-      </script>
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"
-      ></script>
-    </div>
-
-    <div class="row align-items-center">
-      <div class="col">
-        <button type="button" class="btn btn-$primary">Badges</button>
-      </div>
-      <div class="col" id="Camera">
-        <button type="button" class="btn btn-$white">
-          //Camera Icon
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-camera"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"
-            />
-            <path
-              d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"
-            />
-          </svg>
-          <!-- <img src="Camera Peach.pngss="img-fluid" alt="..."> -->
-        </button>
-      </div>
-      <div class="col">
-        <button type="button" class="btn btn-$white">Clues</button>
+    <!-- CLUE AND HINT MODAL -->
+    <div class="modal" id="clue" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Clue</h5>
+          </div>
+          <div class="modal-body">
+            <p id="clueText">Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button id="showHintButton" type="button" class="btn btn-primary">
+              hint
+            </button>
+            <button id="skipClueButton" type="button" class="btn btn-primary">
+              skip
+            </button>
+            <button
+              id="completeClueButton"
+              type="button"
+              class="btn btn-primary"
+            >
+              complete
+            </button>
+          </div>
+        </div>
       </div>
     </div>
+
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoicHNjaG1pZWRlciIsImEiOiJja20ycHh1bzcwajM2MnZqdmtuMmk4dWpiIn0.apH3FfHL-LjCbxklt2seNw";
+      var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [-83.066887, 42.358467],
+        zoom: 14,
+        pitch: 0
+      });
+
+      map.addControl(
+        new mapboxgl.GeolocateControl({
+          positionOptions: {
+            enableHighAccuracy: true
+          },
+          trackUserLocation: true
+        })
+      );
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+
     <script src="/app.js"></script>
+    <script src="/map.js"></script>
   </body>
 </html>

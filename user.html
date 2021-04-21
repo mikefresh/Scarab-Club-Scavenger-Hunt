@@ -10,11 +10,6 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
 
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
 
@@ -38,14 +33,9 @@
     <title>Static Template</title>
   </head>
   <body>
-    <div class="row header">
-      <h1 class="rfont">Scarab Club</h1>
-      <button type="button" id="startGame" class="btn btn-primary">
-        Start Game
-      </button>
-    </div>
     <div class="container">
-      <div id="firebaseui-auth-container"></div>
+      <h1 id="userName">Users</h1>
+      <button id="btnLogout" class="btn btn-primary">Logout</button>
     </div>
     <div class="footer">
       <div class="container">
@@ -64,6 +54,6 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
-    <script src="/home.js"></script>
+    <script src="user.js"></script>
   </body>
 </html>
