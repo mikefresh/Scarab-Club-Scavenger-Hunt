@@ -1,0 +1,31 @@
+.top {
+  background-color: white;
+  border-radius: 0px 0px 30px 30px;
+}
+.bg {
+  background-image: url("bg.jpg");
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+.arw {
+  position: absolute;
+  z-index: 1;
+  width: 15%;
+  height: 15%;
+  bottom: 300px;
+  left: 400px;
+}
+.location {
+  position: absolute;
+  z-index: 1;
+  width: 3%;
+  height: 7%;
+  left: 650px;
+  bottom: 600px;
+}
+.nv {
+  background-color: rgba(0, 42, 65);
+}
