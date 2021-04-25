@@ -8,7 +8,7 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
-  background-color: #1b3642;
+  background-image: url("grad-3-01.png");
 }
 
 #Camera {
@@ -21,12 +21,13 @@ body {
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 60px;
   line-height: 60px;
   background-color: #e77051;
+  z-index: 2;
 }
 
 .btn-primary {
@@ -54,6 +55,11 @@ body {
   border-radius: 20px 20px 20px 20px;
 }
 .rfont {
+  background-color: white;
+  padding: 1em 0 1em 0em;
+  text-align: center;
+  max-width: 100vw;
+  border-radius: 0px 0px 80px 80px;
   font-family: "Roboto", sans-serif;
 }
 
@@ -71,4 +77,30 @@ body {
 
 #clue .modal-header h5 {
   margin: auto;
+}
+.container-fluid {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  background-image: url("grad-3-01.png");
+}
+.card {
+  background-color: white;
+  border-radius: 20px;
+  border-color: #e77051;
+  border-style: solid;
+  border-width: medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badgeName {
+  color: #ce7861;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+.card-header {
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  border-color: white;
 }
