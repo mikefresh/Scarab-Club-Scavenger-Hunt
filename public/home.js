@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+let currentUser;
+
+firebase.auth().onAuthStateChanged((firebaseuser) => {
+  if (firebaseuser) {
+    currentUser = firebaseuser
+  }
+});
+
+
 let startGameButton = document.getElementById("startGame");
 
 startGameButton.addEventListener("click", () => {
@@ -33,7 +42,18 @@ function createPlaceMarker(document) {
     .setPopup(popup);
 }
 
-function getFivePlaces(places) {
+async function getAPerson(){
+  return db.collection("people").get().then((querySnapshot) => {
+  var people = [];
+  querySnapshot.forEach((doc) => {
+      people.push({ ...doc.data(), id: doc.id });
+    });
+    console.log(people);
+    return people[0]
+  });
+}
+
+async function getFivePlaces(places) {
   //console.log(places[Math.floor(Math.random() * places.length)]);
   var fivePlaces = [];
   while (fivePlaces.length < 5) {
@@ -42,6 +62,8 @@ function getFivePlaces(places) {
     if (fivePlaces.includes(place)) {
       console.log("we found a duplicate");
     } else {
+      const person = await getAPerson()
+      place.person = person;
       fivePlaces.push(place);
     }
   }
