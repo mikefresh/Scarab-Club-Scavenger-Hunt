@@ -76,7 +76,7 @@ window.onload = function () {
           // 250ft   0.0762
           // 100ft   0.03048
 
-         if(distance > 0.03048){
+         if(distance > 0.0762){
           console.log(`Sa far away!`,distance)
           place.getElement().classList.add('hidden')
          }else{
