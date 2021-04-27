@@ -22,8 +22,19 @@
         gps-entity-place="latitude: 42.381821; longitude: -83.096039;"
       ></a-text> -->
 
-      <a-entity gltf-model="/magnemite/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15" gps-entity-place="latitude: 42.381821; longitude: -83.096039;" animation-mixer/>
+      <a-entity gltf-model="/magnemite/scene.gltf" 
+      rotation="0 180 0" 
+      look-at="[gps-camera]"
+      scale="0.15 0.15 0.15" 
+      gps-entity-place="latitude: 42.381821; longitude: -83.096039;" 
+      animation-mixer/>
 
+      <a-entity gltf-model="/magnemite/scene.gltf" 
+      rotation="0 180 0" 
+      look-at="[gps-camera]"
+      scale="0.15 0.15 0.15" 
+      gps-entity-place="latitude: 42.382809; longitude: -83.093312;" 
+      animation-mixer/>
 
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
