@@ -102,7 +102,7 @@ function renderImage(placeMarker){
         model.setAttribute('src', "https://upload.wikimedia.org/wikipedia/commons/c/c1/Rivera_detroit_industry_north.jpg");
         //model.setAttribute('rotation', '0 180 0');
         model.setAttribute("look-at", "[gps-camera]");
-        model.setAttribute("scale", "120 120 120")
+        model.setAttribute("scale", "60 60 60")
 
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
