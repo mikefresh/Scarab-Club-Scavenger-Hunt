@@ -29,7 +29,7 @@ firebase.auth().onAuthStateChanged((firebaseuser) => {
         firebase.auth.PhoneAuthProvider.PROVIDER_ID,
         firebase.auth.GoogleAuthProvider.PROVIDER_ID
       ],
-      signInSuccessUrl: "https://fgb9m.csb.app/"
+      signInSuccessUrl: "https://scarab-club.web.app/"
     });
   }
 });
