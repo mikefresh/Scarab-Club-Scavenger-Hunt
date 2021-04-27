@@ -100,7 +100,7 @@ window.onload = function () {
 
 
     testMarker2 = new mapboxgl.Marker()
-      .setLngLat([-83.097038, 42.381310])
+      .setLngLat([-83.073743, 42.367873])
       .addTo(map);
       testMarker2.getElement().addEventListener("click", () => {
         window.location.href = '/ar.html';
