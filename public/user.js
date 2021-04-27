@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() {
+
 btnLogout.addEventListener("click", logout);
 
 firebase.auth().onAuthStateChanged((firebaseuser) => {
@@ -15,3 +17,5 @@ function logout() {
 function setupUser(user) {
   userName.innerHTML = user.displayName;
 }
+
+});

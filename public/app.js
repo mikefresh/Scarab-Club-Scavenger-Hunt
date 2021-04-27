@@ -23,13 +23,18 @@ firebase.auth().onAuthStateChanged((firebaseuser) => {
   if (firebaseuser) {
     console.log(firebaseuser);
     currentUser = firebaseuser;
+    const startGame = document.getElementById('startGame');
+    if(startGame){
+      startGame.classList.toggle("hidden")
+    }
   } else {
     ui.start("#firebaseui-auth-container", {
       signInOptions: [
         firebase.auth.PhoneAuthProvider.PROVIDER_ID,
         firebase.auth.GoogleAuthProvider.PROVIDER_ID
       ],
-      signInSuccessUrl: "https://fgb9m.csb.app/"
+      signInSuccessUrl: "https://scarab-club.web.app/"
+      //signInSuccessUrl: "localhost:5000/"
     });
   }
 });

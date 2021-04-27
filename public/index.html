@@ -33,7 +33,9 @@
 
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
 
-        <link
+    <script defer src="/__/firebase/init.js?useEmulator=false"></script>
+
+    <link
       type="text/css"
       rel="stylesheet"
       href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css"
@@ -41,18 +43,14 @@
     
 
     <link type="text/css" rel="stylesheet" href="/styles.css" />
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=false"></script>
+
     <script src="app.js"></script>
    
   </head>
   <body>
     <div class="header">
       <h1 class="rfont">Scarab Club</h1>
-      <button type="button" id="startGame" class="btn btn-primary">
+      <button type="button" id="startGame" class="btn btn-primary hidden">
         Start Game
       </button>
     </div>
