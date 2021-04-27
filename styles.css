@@ -104,3 +104,45 @@ body {
   background-color: white;
   border-color: white;
 }
+
+.badgeName {
+  color: #ce7861;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+.card-header {
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  border-color: white;
+}
+.badgeImage {
+  width: 150px;
+}
+.accordion-item {
+  background-color: white;
+  border-radius: 20px;
+  border-color: #e77051;
+  border-style: solid;
+  border-width: medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.accordion-body {
+  color: #ce7861;
+  font-family: "Roboto", sans-serif;
+}
+.left {
+  float: left;
+  width: 200px;
+  padding: 10px;
+}
+.whatBadge {
+  color: #ce7861;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+.level {
+  color: #274654;
+  font-weight: bold;
+}
