@@ -1,15 +1,34 @@
-let db = firebase.firestore();
+
+
+//let db = firebase.firestore();
 
 let gameSession;
 
 window.onload = function () {
+
+  
+
+      var geolocate = new mapboxgl.GeolocateControl({
+    positionOptions: {
+    enableHighAccuracy: true
+    },
+    trackUserLocation: true
+    });
+    // Add the control to the map.
+    map.addControl(geolocate);
+    map.on('load', function() {
+    geolocate.trigger();
+    });
+  
+
+  const db = firebase.firestore();
   // jQuery and everything else is loaded
   $("#clue").modal("show");
-
-  toggleClueButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    $("#clue").modal("show");
-  });
+  // const toggleClueButton = document.getElementById("toggleClueButton");
+  // toggleClueButton.addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   $("#clue").modal("show");
+  // });
 
   firebase.auth().onAuthStateChanged((firebaseuser) => {
     if (firebaseuser) {
@@ -81,4 +100,4 @@ function receiveBadge() {
   console.log("You got a badge!!!!");
 }
 
-startGame();
+//startGame();

@@ -60,6 +60,11 @@ body {
   font-size: 1em;
 }
 
+.hidden{
+  visibility:hidden;
+  display: none;
+}
+
 #startGame {
   margin: auto;
   max-width: 200px;
