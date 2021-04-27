@@ -10,33 +10,14 @@
   </head>
 
   <body style="margin: 0; overflow: hidden;">
-    <a-scene
-      vr-mode-ui="enabled: false"
-      embedded
-      arjs="sourceType: webcam; debugUIEnabled: false;"
-    >
-      <!-- <a-text
-        value="This content will always face you."
-        look-at="[gps-camera]"
-        scale="50 50 50"
-        gps-entity-place="latitude: 42.381821; longitude: -83.096039;"
-      ></a-text> -->
-
-      <a-entity gltf-model="/magnemite/scene.gltf" 
-      rotation="0 180 0" 
-      look-at="[gps-camera]"
-      scale="0.15 0.15 0.15" 
-      gps-entity-place="latitude: 42.381821; longitude: -83.096039;" 
-      animation-mixer/>
-
-      <a-entity gltf-model="/magnemite/scene.gltf" 
-      rotation="0 180 0" 
-      look-at="[gps-camera]"
-      scale="0.15 0.15 0.15" 
-      gps-entity-place="latitude: 42.382809; longitude: -83.093312;" 
-      animation-mixer/>
+  <a-scene
+        vr-mode-ui="enabled: false"
+		embedded
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+      
 
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
+    <script src="ar.js"></script>
   </body>
 </html>
