@@ -36,11 +36,6 @@ window.onload = function () {
     }
   });
 
-  completeClueButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    answerClue();
-  });
-
   let currentSession;
 
   function getUserSession(user) {
@@ -99,16 +94,25 @@ window.onload = function () {
       .setLngLat([-83.096039, 42.381821])
       .addTo(map);
       testMarker.getElement().addEventListener("click", () => {
-        window.location.href = '/newar.html';
+        window.location.href = '/ar.html';
       })
       markers.push(testMarker)
+
+
+    testMarker2 = new mapboxgl.Marker()
+      .setLngLat([-83.097038, 42.381310])
+      .addTo(map);
+      testMarker2.getElement().addEventListener("click", () => {
+        window.location.href = '/ar.html';
+      })
+      markers.push(testMarker2)
 
     for(let place of places){
       const marker = new mapboxgl.Marker()
       .setLngLat([place.longitude, place.latitude])
       .addTo(map);
       marker.getElement().addEventListener("click", () => {
-        window.location.href = '/newar.html';
+        window.location.href = '/ar.html';
       })
       markers.push(marker)
     }
