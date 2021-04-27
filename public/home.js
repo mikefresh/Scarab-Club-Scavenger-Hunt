@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() {
+
 let startGameButton = document.getElementById("startGame");
 
 startGameButton.addEventListener("click", () => {
@@ -96,3 +98,4 @@ function completeGame() {
 function receiveBadge() {
   console.log("You got a badge!!!!");
 }
+});
