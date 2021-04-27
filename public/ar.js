@@ -47,8 +47,8 @@ function pickPlace(place){
             demo = {
             name: 'Magnemite',
             location: {
-                lat: 42.381310,
-                lng: -83.097038
+                lat: 42.381821,
+                lng: -83.096039
             }
         }
 
