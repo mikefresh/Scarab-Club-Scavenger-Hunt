@@ -6,11 +6,9 @@ let gameSession;
 
 window.onload = function () {
 
-  
-
-      var geolocate = new mapboxgl.GeolocateControl({
+  var geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
-    enableHighAccuracy: true
+      enableHighAccuracy: true
     },
     trackUserLocation: true
     });
@@ -18,9 +16,8 @@ window.onload = function () {
     map.addControl(geolocate);
     map.on('load', function() {
     geolocate.trigger();
-    });
+  });
   
-
   const db = firebase.firestore();
   // jQuery and everything else is loaded
   $("#clue").modal("show");
@@ -55,10 +52,22 @@ window.onload = function () {
         });
         console.log(userSessions);
         currentSession = userSessions[0];
+        createMarkers(userSessions[0].places);
         clueText.innerHTML =
           userSessions[0].places[userSessions[0].currentPlace].clue;
       });
     return userSessions[0];
+  }
+
+  function createMarkers(places){
+    for(let place of places){
+      const marker = new mapboxgl.Marker()
+      .setLngLat([place.longitude, place.latitude])
+      .addTo(map);
+      marker.getElement().addEventListener("click", () => {
+        window.location.href = '/newar.html';
+      })
+    }
   }
 
   function getClue(place) {
