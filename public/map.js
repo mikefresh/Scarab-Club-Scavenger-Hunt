@@ -6,6 +6,8 @@ let gameSession;
 
 window.onload = function () {
 
+  let markers = []
+
   var geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
       enableHighAccuracy: true
@@ -16,6 +18,7 @@ window.onload = function () {
     map.addControl(geolocate);
     map.on('load', function() {
     geolocate.trigger();
+    navigator.geolocation.watchPosition(checkDistance);
   });
   
   const db = firebase.firestore();
@@ -59,7 +62,47 @@ window.onload = function () {
     return userSessions[0];
   }
 
+  function checkDistance(position){
+
+    const places = currentSession.places
+    console.log("Locations", places)
+
+    console.log("MArkers", markers)
+
+    for(let place of markers){
+
+         var from = turf.point([position.coords.longitude, position.coords.latitude]);
+         var to = turf.point([place.getLngLat().lng, place.getLngLat().lat]);
+         var options = {units: 'miles'};
+
+         var distance = turf.distance(from, to, options);
+
+          // 500ft   0.1524
+          // 250ft   0.0762
+          // 100ft   0.03048
+
+         if(distance > 0.03048){
+          console.log(`Sa far away!`,distance)
+          place.getElement().classList.add('hidden')
+         }else{
+           console.log(`Your close`,distance)
+           place.getElement().classList.add('remove')
+         }
+    }
+  }
+
   function createMarkers(places){
+    markers = [];
+
+    //test markers
+    testMarker = new mapboxgl.Marker()
+      .setLngLat([-83.096039, 42.381821])
+      .addTo(map);
+      testMarker.getElement().addEventListener("click", () => {
+        window.location.href = '/newar.html';
+      })
+      markers.push(testMarker)
+
     for(let place of places){
       const marker = new mapboxgl.Marker()
       .setLngLat([place.longitude, place.latitude])
@@ -67,6 +110,7 @@ window.onload = function () {
       marker.getElement().addEventListener("click", () => {
         window.location.href = '/newar.html';
       })
+      markers.push(marker)
     }
   }
 
