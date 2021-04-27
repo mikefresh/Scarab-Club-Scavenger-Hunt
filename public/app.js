@@ -33,8 +33,8 @@ firebase.auth().onAuthStateChanged((firebaseuser) => {
         firebase.auth.PhoneAuthProvider.PROVIDER_ID,
         firebase.auth.GoogleAuthProvider.PROVIDER_ID
       ],
-      //signInSuccessUrl: "https://scarab-club.web.app/"
-      signInSuccessUrl: "localhost:5000/"
+      signInSuccessUrl: "https://scarab-club.web.app/"
+      //signInSuccessUrl: "localhost:5000/"
     });
   }
 });
