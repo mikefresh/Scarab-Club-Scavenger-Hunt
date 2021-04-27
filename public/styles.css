@@ -11,6 +11,30 @@ body {
   background-image: url("images/backgrounsgradient-01.png");
 }
 
+#instructions{
+  background-color: #E77051;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+#instructions h2{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#instructions img{
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+#instructions .details{
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
 #Camera {
   height: 1px;
   width: 1px;
