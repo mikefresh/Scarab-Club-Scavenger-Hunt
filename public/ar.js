@@ -1,26 +1,57 @@
 window.onload = () => {
-     let places = staticLoadPlaces();
-     renderPlaces(places);
+     
+     
+
+
+     const db = firebase.firestore();
+
+
+    firebase.auth().onAuthStateChanged((firebaseuser) => {
+    if (firebaseuser) {
+      getUserSession(firebaseuser);
+    }
+  });
+
+    let currentSession;
+
+    function getUserSession(user) {
+        let userSessions = [];
+        db.collection("sessions")
+        .where("userId", "==", user.uid)
+        .where("complete", "==", false)
+        .onSnapshot((querySnapshot) => {
+            userSessions = [];
+            querySnapshot.forEach((doc) => {
+            userSessions.push({ ...doc.data(), id: doc.id });
+            });
+            console.log(userSessions);
+            currentSession = userSessions[0];
+            const place = currentSession.places[currentSession.currentPlace]
+            pickPlace(place)
+        });
+        return userSessions[0];
+    }
 };
 
-function staticLoadPlaces() {
-    return [
-        {
+function pickPlace(place){
+    console.log("TEHE PLACE", place)
+
+         placeMarker = {
             name: 'Magnemite',
             location: {
-                lat: 42.382809,
-                lng: -83.093312
+                lat: place.latitude,
+                lng: place.longitude
             }
-        },
-    ];
+        }
+
+        renderPlaces(placeMarker)
 }
 
-function renderPlaces(places) {
-    let scene = document.querySelector('a-scene');
 
-    places.forEach((place) => {
-        let latitude = place.location.lat;
-        let longitude = place.location.lng;
+function renderPlaces(placeMarker) {
+    let scene = document.querySelector('a-scene');
+        let latitude = placeMarker.location.lat;
+        let longitude = placeMarker.location.lng;
 
         let model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
@@ -34,5 +65,5 @@ function renderPlaces(places) {
         });
 
         scene.appendChild(model);
-    });
+    
 }
