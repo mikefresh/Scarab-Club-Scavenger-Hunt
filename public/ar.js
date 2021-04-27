@@ -85,16 +85,16 @@ function renderPlaces(placeMarker) {
         //model.addEventListener("click", () => {alert("you clicked")})
 
 
-    AFRAME.registerComponent('clickhandler', {
+    // AFRAME.registerComponent('clickhandler', {
 
-    init: function() {
-        ////const animatedMarker = document.querySelector("#animated-marker");
-        console.log('Addding')
-        const aEntity = document.getElementById("animated-model");
-        aEntity.addEventListener("click", () => {
-            alert("CLICKED")
-        })
-    }});
+    // init: function() {
+    //     ////const animatedMarker = document.querySelector("#animated-marker");
+    //     console.log('Addding')
+    //     const aEntity = document.getElementById("animated-model");
+    //     aEntity.addEventListener("click", () => {
+    //         alert("CLICKED")
+    //     })
+    // }});
 
 
     
