@@ -86,7 +86,7 @@ window.onload = function () {
           place.getElement().classList.add('hidden')
          }else{
            console.log(`Your close`,distance)
-           place.getElement().classList.add('remove')
+           place.getElement().classList.remove('hidden')
          }
     }
   }
