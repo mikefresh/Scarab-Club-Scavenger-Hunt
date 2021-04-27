@@ -85,7 +85,7 @@ function pickPlace(place){
             }
         }
 
-        renderPlaces(demo)
+        //renderPlaces(demo)
         renderImage(demo)
 }
 
@@ -100,7 +100,8 @@ function renderImage(placeMarker){
         let model = document.createElement('a-image');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         model.setAttribute('src', "https://upload.wikimedia.org/wikipedia/commons/c/c1/Rivera_detroit_industry_north.jpg");
-        model.setAttribute('rotation', '0 180 0');
+        //model.setAttribute('rotation', '0 180 0');
+        model.setAttribute("look-at", "[gps-camera]");
 
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
