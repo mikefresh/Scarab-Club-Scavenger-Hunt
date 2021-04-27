@@ -41,6 +41,23 @@
     />
   </head>
   <body style="margin: 0; overflow: hidden;">
+
+       <div class="collectBox">
+         <div class="collectBoxDetails">
+          
+              <p id="placeText">Modal body text goes here.</p>
+
+              <p id="details">
+                Details!
+              </p>
+              <button
+              id="completeClueButton"
+              type="button"
+              class="btn btn-primary">
+              complete
+            </button>
+         </div>
+    </div>
   <a-scene
   cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
         raycaster="objects: [clickhandler];"
@@ -51,7 +68,8 @@
       
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
-    </div>
+
+ 
 
     <div class="footer">
       <div class="container">
@@ -65,35 +83,6 @@
       </div>
     </div>
 
-
-        <!-- CLUE AND HINT MODAL -->
-    <div class="modal" id="clue" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Clue</h5>
-          </div>
-          <div class="modal-body">
-            <p id="clueText">Modal body text goes here.</p>
-          </div>
-          <div class="modal-footer">
-            <button id="showHintButton" type="button" class="btn btn-primary">
-              hint
-            </button>
-            <button id="skipClueButton" type="button" class="btn btn-primary">
-              skip
-            </button>
-            <button
-              id="completeClueButton"
-              type="button"
-              class="btn btn-primary"
-            >
-              complete
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
 
        <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"

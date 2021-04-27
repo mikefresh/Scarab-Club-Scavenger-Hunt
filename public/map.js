@@ -36,11 +36,6 @@ window.onload = function () {
     }
   });
 
-  completeClueButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    answerClue();
-  });
-
   let currentSession;
 
   function getUserSession(user) {

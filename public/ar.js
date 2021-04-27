@@ -1,6 +1,31 @@
 window.onload = () => {
+let currentSession;
+          function answerClue() {
+    currentSession.currentPlace++;
+    if (currentSession.currentPlace > 4) {
+      completeGame(currentSession);
+    } else {
+      db.collection("sessions")
+        .doc(currentSession.id)
+        .update({
+          currentPlace: currentSession.currentPlace
+        })
+        .then(() => {
+          console.log("Document successfully updated!");
+          window.location.href = '/map.html';
+        })
+        .catch((error) => {
+          // The document probably doesn't exist.
+          console.error("Error updating document: ", error);
+        });
+      console.log("YOU ARE TRYING TO COMPLETE THIS SESSION!", currentSession);
+    }
+  }
      
-     
+       completeClueButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    answerClue();
+  });
 
 
      const db = firebase.firestore();
@@ -12,7 +37,7 @@ window.onload = () => {
     }
   });
 
-    let currentSession;
+    
 
     function getUserSession(user) {
         let userSessions = [];
@@ -28,10 +53,18 @@ window.onload = () => {
             currentSession = userSessions[0];
             const place = currentSession.places[currentSession.currentPlace]
             pickPlace(place)
+            setupDetailsBox(place)
         });
         return userSessions[0];
     }
 };
+
+function setupDetailsBox(place){
+    const placeText = document.getElementById("placeText")
+    const details = document.getElementById("details")
+    placeText.innerHTML = place.name
+    details.innerHTML = place.description
+}
 
 function pickPlace(place){
     console.log("TEHE PLACE", place)
@@ -90,7 +123,5 @@ function renderPlaces(placeMarker) {
     //         alert("CLICKED")
     //     })
     // }});
-
-
     
 }

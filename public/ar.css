@@ -22,3 +22,31 @@ body,html{
 .footer .nav img{
   width: 55px;
 }
+
+.collectBox{
+    z-index: 2;
+    left: 0px;
+    position: fixed;
+    bottom: 60px;
+    width: 100%;
+    height: 250px;
+    display: flex;
+}
+
+.collectBoxDetails{
+    background-color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    padding: 20px;
+}
+
+#placeText{
+    font-weight: bold;
+    text-align: center;
+}
+
+#details{
+    border-bottom: solid 1px #dddddd;
+}
