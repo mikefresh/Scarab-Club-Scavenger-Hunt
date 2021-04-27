@@ -26,17 +26,34 @@
 
     <script defer src="/__/firebase/init.js?useEmulator=false"></script>
 
-
+       <link
+      type="text/css"
+      rel="stylesheet"
+      href="ar.css"
+    />
   </head>
   <body style="margin: 0; overflow: hidden;">
   <a-scene
         vr-mode-ui="enabled: false"
 		embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+        arjs='sourceType: webcam; debugUIEnabled: false;'>
       
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
     </div>
+
+    <div class="footer">
+      <div class="container">
+          <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="badges.html"><img src="images/badgesIcon.png"/></a>
+            <a href="map.html"><img src="images/mapIcon.png"/></a>
+            <a href="instructions.html"><img src="images/instructionsIcon.png"/></a>
+            <a href="user.html">Profile</a>
+          </div>
+      </div>
+    </div>
+
        <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
