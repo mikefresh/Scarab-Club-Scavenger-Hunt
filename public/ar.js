@@ -44,11 +44,21 @@ function pickPlace(place){
             }
         }
 
-        renderPlaces(placeMarker)
+            demo = {
+            name: 'Magnemite',
+            location: {
+                lat: 42.381310,
+                lng: -83.097038
+            }
+        }
+
+        renderPlaces(demo)
 }
 
 
 function renderPlaces(placeMarker) {
+
+    let marker = document.getElementById("animated-marker");
     let scene = document.querySelector('a-scene');
         let latitude = placeMarker.location.lat;
         let longitude = placeMarker.location.lng;
@@ -59,11 +69,33 @@ function renderPlaces(placeMarker) {
         model.setAttribute('rotation', '0 180 0');
         model.setAttribute('animation-mixer', '');
         model.setAttribute('scale', '0.5 0.5 0.5');
+        model.setAttribute('clickhandler', '')
+        model.setAttribute('emitevents', 'true');
+        model.setAttribute('cursor','rayOrigin: mouse' )
+        model.id = "animated-model"
 
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
         });
 
+        
+
         scene.appendChild(model);
+
+        //model.addEventListener("click", () => {alert("you clicked")})
+
+
+    AFRAME.registerComponent('clickhandler', {
+
+    init: function() {
+        ////const animatedMarker = document.querySelector("#animated-marker");
+        console.log('Addding')
+        const aEntity = document.getElementById("animated-model");
+        aEntity.addEventListener("click", () => {
+            alert("CLICKED")
+        })
+    }});
+
+
     
 }
